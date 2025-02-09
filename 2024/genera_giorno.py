@@ -1,6 +1,7 @@
 import os
 import requests
 import sys
+from apikeys import SESSION_ID
 
 def crea_cartella(nome_cartella):
     if not os.path.exists(nome_cartella):
@@ -8,9 +9,13 @@ def crea_cartella(nome_cartella):
 
 
 def crea_file_python(percorso_file):
-    contenuto_python = """# Script per Advent of Code
+    contenuto_python = f"""# Script per Advent of Code giorno {day_number}
 
 def main():
+    FILE_PATH = '2024/day{day_number}/esempio.txt'
+
+    with open(FILE_PATH) as file:
+        pass
 
 if __name__ == "__main__":
     main()
@@ -25,7 +30,6 @@ def crea_file_vuoto(percorso_file):
 
 
 def scarica_file(url, percorso_destinazione):
-    SESSION_ID = '53616c7465645f5f947ffea93582f121c563080850a0dfa4b5a6dd68846c151ae893390aedec6fab2d28912b169969ce9bd47efe8f8aa594cd385cc3c7aaebb8'
     try:
         response = requests.get(url, cookies={"session": SESSION_ID})  # Sostituisci con la tua sessione AoC
         response.raise_for_status()
