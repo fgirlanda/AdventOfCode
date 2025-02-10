@@ -15,9 +15,18 @@ operativamente: creo una stringa inizialmente vuota, aggiungo un numero di indic
 
 parto dal fondo e mi muovo verso sinistra. ogni blocco lo sposto nel primo spazio libero da sinistra
 
-nested for? primo for per scorrere da destra verso sinistra, secondo for per scorrere da sinistra a destra
+xxxx nested for? primo for per scorrere da destra verso sinistra, secondo for per scorrere da sinistra a destra -> TROPPO LENTO xxxx
 
-00...111...2...333.44.5555.6666.777.888899 => 0099811188827773336446555566..............
+salvo gli indici dei punti
+sostituisco man mano ogni punto
+indice massimo da controllare? => lunghezza rappresentazione - numero di punti 
+00...111...2...333.44.5555.6666.777.888899 => 
+0099811188827773336446555566..............
+
+len(rappresentazione) = 42
+len(indici_punti) = 14
+27 = indice massimo = 41 - 14 = len(rappresentazione) - 1 - len(indici_punti)
+indice massimo
 
 3) calcolo checksum
 
@@ -25,3 +34,23 @@ checksum += indice finale file * indice iniziale file
 
 indice finale file = 
 indice iniziale file* = posizioni dispari dell'input (1 -> 0, 3 -> 1, 5 -> 2 ....)
+
+
+
+*****************************************************************************************
+
+checksum = sommatoria(id iniziale * id finale)
+                    
+                                    .
+2 3 3 3 1 3 3 1 2 1 4 1 4 1 3 1 4 0 2
+.
+
+0099811188827773336446555566..............
+                        
+id iniziale -> ogni volta che prendo posizione pari aumenta
+id finale -> posizione dispari che aggiorno quando ho riempito gli spazi
+
+
+id iniziale = indice_sopra // 2
+
+id finale = contatore
