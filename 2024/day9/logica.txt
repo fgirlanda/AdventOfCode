@@ -1,0 +1,27 @@
+1) passare da numeri a struttura disco
+
+2333133121414131402 => 00...111...2...333.44.5555.6666.777.888899
+                       
+
+numero = indice file
+. = spazio libero
+
+si alternano dimensioni file - spazi liberi
+
+operativamente: creo una stringa inizialmente vuota, aggiungo un numero di indice_iniziale* pari alla dimensione, 
+                                                     aggiungo un numero di punti pari agli spazi vuoti
+
+2) riordinare disco
+
+parto dal fondo e mi muovo verso sinistra. ogni blocco lo sposto nel primo spazio libero da sinistra
+
+nested for? primo for per scorrere da destra verso sinistra, secondo for per scorrere da sinistra a destra
+
+00...111...2...333.44.5555.6666.777.888899 => 0099811188827773336446555566..............
+
+3) calcolo checksum
+
+checksum += indice finale file * indice iniziale file
+
+indice finale file = 
+indice iniziale file* = posizioni dispari dell'input (1 -> 0, 3 -> 1, 5 -> 2 ....)

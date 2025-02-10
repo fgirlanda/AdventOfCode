@@ -1,3 +1,6 @@
+import time
+
+
 def main():
     file_name = "2024/day6/input.txt"
     griglia = []
@@ -11,10 +14,13 @@ def main():
             if elemento != '.' and elemento != '#':
                 start_r = griglia.index(riga)
                 start_c = riga.index(elemento)
-    
+                break
+    start1 = time.time()
     visitati = trova_percorso(griglia, start_r, start_c)
     print(f"Parte 1: {len(visitati)}")
+    print('\nTempo esecuzione parte 1: ', time.time()-start1)
 
+    start2 = time.time()
     for r,c in visitati[1:]:
         griglia[r][c] = '#'
         if check_loop(griglia, start_r, start_c):
@@ -22,7 +28,8 @@ def main():
             nuovi_ostacoli += 1
         griglia[r][c] = '.'
 
-    print(f"Parte 2: {nuovi_ostacoli}")
+    print(f"\nParte 2: {nuovi_ostacoli}")
+    print('\nTempo esecuzione parte 2: ', time.time() - start2)
 
 
 # dir = [(-1, 0),(0, 1),(1, 0),(0, -1)] # up, right, down, left  
