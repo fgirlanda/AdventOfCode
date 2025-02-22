@@ -47,7 +47,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Prende il numero del giorno dall'argomento
-    day_number = sys.argv[1][3]
+    day_number = sys.argv[1][3:]
 
     # Definisce il nome della cartella e l'URL
     nome_cartella = f"day{day_number}"
