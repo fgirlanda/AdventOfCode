@@ -68,28 +68,6 @@ def parte2_alt(istruzioni, start):
             result += nuovo // 100 - temp // 100
         
         temp = nuovo % 100
-            
-    return result
-    
-    for istruzione in istruzioni:
-        if istruzione[0] == 'L':
-            nuovo = temp - istruzione[1]
-        else:
-            nuovo = temp + istruzione[1]
-        
-        # Conta quante volte attraversiamo lo 0
-        if nuovo > temp:  # Movimento verso destra (R)
-            result += (nuovo // 100) - (temp // 100)
-        elif nuovo < temp:  # Movimento verso sinistra (L)
-            # Conta quanti multipli di 100 attraversiamo scendendo
-            # Formula simmetrica: da temp scendiamo a nuovo
-            # Attraversiamo 0, -100, -200... 
-            # Usiamo ceil per temp e floor per nuovo
-            result += (temp - 1) // 100 - (nuovo - 1) // 100
-        
-        temp = nuovo % 100
-
-    return result
     
 
 def parte2(istruzioni, start):
